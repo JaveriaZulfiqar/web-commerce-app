@@ -15,7 +15,10 @@ const getTenantModels = async (tenantId) => {
     { ...dbConfig }
   );
 
-  await tenantSequelize.query(`CREATE SCHEMA IF NOT EXISTS "${tenantId}"`);
+  await tenantSequelize.query(
+    'CREATE SCHEMA IF NOT EXISTS :schema',
+    { replacements: { schema: tenantId }, raw: true }
+  );
 
   const Product = defineProduct(tenantSequelize, tenantId);
   const Order = defineOrder(tenantSequelize, tenantId);
