@@ -37,8 +37,8 @@ createdb multitenant_db
 
 ### 4. Start the server
 ```bash
-npm run dev     # development (nodemon)
-npm start       # production
+npm run dev    
+npm start     
 ```
 
 ## API Endpoints
